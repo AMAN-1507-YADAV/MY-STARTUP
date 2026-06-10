@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A student using the application.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "studiedCount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "studiedCount", "createdAt", "updatedAt"]
+    },
+    "Deck": {
+      "title": "Deck",
+      "description": "A saved flashcard deck.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "cards": { "type": "array" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "cards", "date", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "decks/{deckId}": {
+      "schema": "Deck",
+      "description": "Flashcard decks. Must belong to a user."
+    }
+  }
+}
